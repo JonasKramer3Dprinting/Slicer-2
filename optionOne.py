@@ -1,4 +1,13 @@
 from globalVariables import *
+def optionOneSettings1():
+    return int(input("How many corners should the quilateral polygon have: "))
+
+def optionTwoSettings2():
+    if int(input("Input 0 for giving the radius, input 1 for giving the sidelenghth: ")) = 0:
+        print("Hello")
+
+def radiusBerechnen(anzahlEcken, seitenlänge):
+    return seitenlänge/math.sin(math.pi/anzahlEcken)/2
 
 #eingabe der Daten
 r = float(input("Radius: "))
@@ -26,26 +35,10 @@ for a in range(0, len(list), 1):
 print(list)
 
 
-
-def optionZeroSettings1():
-    global length
-    length = float(input("Give the length of the quader: "))
-    return length
-
-def optionZeroSettings2():
-    global width 
-    width = float(input("Give the width of the quader: "))
-    return width
-
-def optionZeroSettings3():
-    global height
-    height = float(input("Give the heigth of the quader: "))
-    return height
-
-def optionZeroOne(lineWidth, placementX, placementY):
-    return optionZero(lineWidth,placementX, placementY, optionZeroSettings1(), optionZeroSettings2(), optionZeroSettings3())
-
-def optionZeroTwo(lineWidth, placementX, placementY):
+#def optionZeroOne(lineWidth, placementX, placementY):
+   # return optionZero(lineWidth,placementX, placementY, optionZeroSettings1(), optionZeroSettings2(), optionZeroSettings3())
+##
+#def optionZeroTwo(lineWidth, placementX, placementY):
     return optionZero(lineWidth, placementX, placementY, length, width, height)
 
-def optionZero(lineWidth,placementX,placementY, length, width, height):
+#def optionZero(lineWidth,placementX,placementY, length, width, height):
