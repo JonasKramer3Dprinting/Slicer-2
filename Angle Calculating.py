@@ -14,7 +14,7 @@ if xD < 0:
     a = 180 + a
 
 # für Winkel zwischen 270 und 360 Grad
-if xD > 0 and yD < 0:
+if xD > 0 and yD < 0: 
     a = 360 + a
 
 # für einen Winkel vno 360 Grad
