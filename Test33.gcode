@@ -7,7 +7,7 @@ M190 S65
 M104 S205
 M105 
 M109 S205
-M83 ;absolute extrusion mode 
+M82 ;absolute extrusion mode 
 ; Ender 3 Custom Start G-code 
 G92 E0 ; Reset Extruder 
 G1 X0 Y0 Z10 F3000
@@ -15,7 +15,7 @@ G1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed
 G1 X0.1 Y20 Z0.3 F5000.0 ; Move to start position 
 G1 X0.1 Y200.0 Z0.3 F1500.0 E15 ; Draw the first line 
 G1 X0.4 Y200.0 Z0.3 F5000.0 ; Move to side a little 
-G1 X0.4 Y20 Z0.3 F1500.0 E15 ; Draw the second line 
+G1 X0.4 Y20 Z0.3 F1500.0 E30 ; Draw the second line 
 G92 E0 ; Reset Extruder 
 G1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed 
 G1 X5 Y20 Z0.3 F5000.0 ; Move over to prevent blob squish 
