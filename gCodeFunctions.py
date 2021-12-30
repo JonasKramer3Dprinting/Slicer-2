@@ -1,7 +1,11 @@
+e = 0.0
+
 # hier ist die Funktion zur Extrusionsberechnung für lineare Bewegungen
 def find_factor(x, y, X, Y, lineWidth, lineHeigth, pi):
     lineDistance = ((X - x) ** 2 + (Y - y) ** 2) ** 0.5
-    e = (lineDistance * lineWidth * lineHeigth * 4) / (1.75 ** 2 * pi)
+    global e
+    e = e + (lineDistance * lineWidth * lineHeigth * 4) / (1.75 ** 2 * pi)
+    e = round(e,6)
     return e
 
 
@@ -29,12 +33,16 @@ def g1(x, y, z, extrusionSpeed, X, Y, lineWidth, lineHeigth, pi):
 
 
 def g1retract(retractionDistance):
-    s = "G1 E-" + str(retractionDistance) + "\n"
+    global e
+    e = e - retractionDistance
+    s = "G1 E" + str(e) + "\n"
     return s
 
 
 def g1retractreversed(retractionDistance):
-    s = "G1 E" + str(retractionDistance) + "\n"
+    global e 
+    e = e + retractionDistance
+    s = "G1 E" + str(e) + "\n"
     return s
 
 

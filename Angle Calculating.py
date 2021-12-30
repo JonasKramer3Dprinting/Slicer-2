@@ -1,6 +1,6 @@
 import math
 
-#hier werden die Distanzunterschiede angegeben
+# hier werden die Distanzunterschiede angegeben
 xD = float(input("x-difference: "))
 yD = float(input("y-difference: "))
 
@@ -14,11 +14,13 @@ if xD < 0:
     a = 180 + a
 
 # für Winkel zwischen 270 und 360 Grad
-if xD > 0 and yD < 0: 
+if xD > 0 and yD < 0:
     a = 360 + a
 
 # für einen Winkel vno 360 Grad
 if a == 360:
     a = 0
 
-print("The angle is: " + str(a))
+print("The angle is: " + str(a)) 
+
+

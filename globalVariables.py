@@ -35,7 +35,6 @@ z = 0
 i = 0
 j = 0
 r = 0
-e = 0
 
 gCodeStart = ""
 gCodeFirstLayer = ""
@@ -45,4 +44,5 @@ gCodeEnd = ""
 option = 0
 placement = []
 list = []
+listE = []
 objectHeight = 0
