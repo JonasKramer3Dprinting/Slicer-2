@@ -83,7 +83,6 @@ if option == 1:
 
 # hier wird der Code für die erste Schicht angefangen zu schreiben
 z = lineHeight
-gCodeFirstLayer = m104(extruderTemperature)
 
 # hier werden die gegebenen Punkte abgefahren
 
@@ -94,7 +93,7 @@ print(len(list), len(list), len(listE), len(listE))
 
 
 gCodeFirstLayer = (
-    gCodeFirstLayer + g0(list[0], list[1], z, travelSpeed) + g1retractreversed(8-8) #es wurden schon 8mm eingezogen und nun müssen wieder 
+    g0(list[0], list[1], z, travelSpeed) + g1retractreversed(8-8) #es wurden schon 8mm eingezogen und nun müssen wieder 
 )
 for a in range(0, len(list) - 2, 2):
     x = list[a + 2]
