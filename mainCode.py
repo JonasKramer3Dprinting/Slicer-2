@@ -86,15 +86,11 @@ z = lineHeight
 
 # hier werden die gegebenen Punkte abgefahren
 
-
-
 print(len(list), len(list), len(listE), len(listE))
 
-
-
-gCodeFirstLayer = (
-    g0(list[0], list[1], z, travelSpeed) + g1retractreversed(8-8) #es wurden schon 8mm eingezogen und nun müssen wieder 
-)
+gCodeFirstLayer = g0(list[0], list[1], z, travelSpeed) + g1retractreversed(
+    8 - 8
+)  # es wurden schon 8mm eingezogen und nun müssen wieder
 for a in range(0, len(list) - 2, 2):
     x = list[a + 2]
     y = list[a + 3]
@@ -147,13 +143,17 @@ for a in range(
     gCodeMiddle = (
         gCodeMiddle
         + g0(list[0], list[1], z - lineHeight, travelSpeed)
-        + g0(list[0], list[1], z, travelSpeed) # Bewegung zum Ansatz wird bereits ausgeführt
+        + g0(
+            list[0], list[1], z, travelSpeed
+        )  # Bewegung zum Ansatz wird bereits ausgeführt
         + g1retractreversed(retractionDistance)
     )
     for a in range(0, len(list) - 2, 2):
         x = list[a + 2]
         y = list[a + 3]
-        if listE[int(a / 2) + 1] == True: # der int ist um eine Einheit höher, siehe im letzten Kommentar
+        if (
+            listE[int(a / 2) + 1] == True
+        ):  # der int ist um eine Einheit höher, siehe im letzten Kommentar
             X = list[a]
             Y = list[a + 1]
             gCodeMiddle = gCodeMiddle + g1(
@@ -164,7 +164,7 @@ for a in range(
     gCodeMiddle = gCodeMiddle + g1retract(retractionDistance)
     z = round((z + lineHeight), 6)
 
-# mit folgendem Code wird der Startcode festgelegt
+# mit folgendem Code wird der Endcode festgelegt
 gCodeEnd = giveEndCode()
 
 # hier werdden die verschiedenen Codes addiert
