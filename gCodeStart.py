@@ -6,9 +6,9 @@ def giveStartCode(lh, bedTemperature, extruderTemperature):
         ";FLAVOR:Marlin \n;Layer height: "
         + str(lh)
         + " \n;Generated with Cura_SteamEngine 4.9.0 \n"
-        + m140(bedTemperature-15)
+        + m140(bedTemperature-5)
         + "M105 \n"
-        + m190(bedTemperature-15)
+        + m190(bedTemperature-5)
         + m140(bedTemperature)
         + m104(extruderTemperature)
         + "M105 \n"
