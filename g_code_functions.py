@@ -1,21 +1,23 @@
 e = 0.0
 
 # hier ist die Funktion zur Extrusionsberechnung für lineare Bewegungen
-def find_factor(x, y, X, Y, lineWidth, lineHeigth, pi):
-    lineDistance = ((X - x) ** 2 + (Y - y) ** 2) ** 0.5
+def find_factor(x, y, X, Y, line_width, line_height, pi):
+    line_distance = ((X - x) ** 2 + (Y - y) ** 2) ** 0.5
     global e
-    e = e + (lineDistance * lineWidth * lineHeigth * 4) / (1.75 ** 2 * pi)
+    e = e + (line_distance * line_width * line_height * 4) / (1.75 ** 2 * pi)
     e = round(e,6)
     return e
 
 
 # nun werden alle Funktionen geschrieben, die als Rückgabe den benötigten gCode ausgeben
-def g0(x, y, z, travelSpeed):
-    s = "G0 X" + str(x) + " Y" + str(y) + " Z" + str(z) + " F" + str(travelSpeed) + "\n"
+
+# dieser Befehl erzeugt eine lineare Bewegung ohne Extrusion
+def g0(x, y, z, travel_speed):
+    s = "G0 X" + str(x) + " Y" + str(y) + " Z" + str(z) + " F" + str(travel_speed) + "\n"
     return s
 
-
-def g1(x, y, z, extrusionSpeed, X, Y, lineWidth, lineHeigth, pi):
+# dieser Befehl erzeugt eine lineare Bewegung mit Extrusion
+def g1(x, y, z, extrusion_speed, X, Y, line_width, line_height, pi):
     s = (
         "G1 X"
         + str(x)
@@ -24,38 +26,38 @@ def g1(x, y, z, extrusionSpeed, X, Y, lineWidth, lineHeigth, pi):
         + " Z"
         + str(z)
         + " E"
-        + str(find_factor(x, y, X, Y, lineWidth, lineHeigth, pi))
+        + str(find_factor(x, y, X, Y, line_width, line_height, pi))
         + " F"
-        + str(extrusionSpeed)
+        + str(extrusion_speed)
         + "\n"
     )
     return s
 
-
-def g1_retract(retractionDistance):
+# dieser Befehl führt einen Filamenteinzug aus
+def g1_retract(retraction_distance):
     global e
-    e = e - retractionDistance
+    e = e - retraction_distance
     s = "G1 E" + str(e) + "\n"
     return s
 
-
-def g1_retractreversed(retractionDistance):
+# dieser Befehl führt den Gegensatz vom Filamenteinzug aus, da Filament das eingezogen wurde, auch wieder zum Düsenanfang gedrückt werden muss
+def g1_retractreversed(retraction_distance):
     global e 
-    e = e + retractionDistance
+    e = e + retraction_distance
     s = "G1 E" + str(e) + "\n"
     return s
 
-
+# mit diesem Befehl wechselt der Drucker zur xy-Ebene, dies ist hauptsächlich für Kreisbewegungen wichtig
 def g17():
     s = "G17; change to xy \n"
     return s
 
-
+# mit diesem Befehl wechselt der Drucker zur xz-Ebene, dies ist hauptsächlich für Kreisbewegungen wichtig
 def g18():
     s = "G18; change to xz \n"
     return s
 
-
+# mit diesem Befehl wechselt der Drucker zur yz-Ebene, dies ist hauptsächlich für Kreisbewegungen wichtig
 def g19():
     s = "G19; change to yz \n"
     return s
@@ -104,21 +106,21 @@ def m83():
     return s
 
 
-def m104(extruderTemperature):
-    s = "M104 S" + str(extruderTemperature) + "\n"
+def m104(extruder_temperature):
+    s = "M104 S" + str(extruder_temperature) + "\n"
     return s
 
 
-def m109(extruderTemperature):
-    s = "M109 S" + str(extruderTemperature) + "\n"
+def m109(extruder_temperature):
+    s = "M109 S" + str(extruder_temperature) + "\n"
     return s
 
 
-def m140(bedTemperature):
-    s = "M140 S" + str(bedTemperature) + "\n"
+def m140(bed_temperature):
+    s = "M140 S" + str(bed_temperature) + "\n"
     return s
 
 
-def m190(bedTemperature):
-    s = "M190 S" + str(bedTemperature) + "\n"
+def m190(bed_temperature):
+    s = "M190 S" + str(bed_temperature) + "\n"
     return s

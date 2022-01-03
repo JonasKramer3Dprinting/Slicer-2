@@ -1,6 +1,6 @@
 import math
 
-pi = math.pi
+pi = math.pi #Pi
 
 # hier werden die globalen Variablen aufgelistet
 tei = 0 # Extruder Temperatur erste Schicht
@@ -17,14 +17,14 @@ fei = 0 # Extrusionsgeschwindigkeit erste Schicht
 fe = 0 # Extrusionsgeschwindigkeit
 rd = 0 # Einzugslänge
 
-line_distance = 0
-line_width = 0
-line_height = 0
-travel_speed = 0
-extrusion_speed = 0
-extruder_temperature = 0
-bed_temperature = 0
-retraction_distance = 0
+line_distance = 0 # Distanz die bei einer Bewegung überwunden wird
+line_width = 0 # aktuelle Linienbreite
+line_height = 0 # aktuelle Schichthöhe
+travel_speed = 0 # aktuelle Bewegungsgeschwindigkeit
+extrusion_speed = 0 # aktuelle Extrusionsgeschwindigkeit
+extruder_temperature = 0 # aktuelle Extrudertemperatur
+bed_temperature = 0 # aktuelle Betttemperatur
+retraction_distance = 0 # aktuelle Einszugslänge
 
 X = 0 # aktuelle x Koordinate
 Y = 0 # aktuelle y Koordinate
@@ -40,6 +40,7 @@ g_code_start = "" # Aufheizen + zwei Anfangslinien
 g_code_first_layer = "" # erste Schicht
 g_code_middle = "" # zweite bis letzte Schicht
 g_code_end = "" # Druckende + Präsentation
+g_code = "" # Gesamter G-code
 
 option = 0 # Option, die gedruckt werden soll
 placement = [] # die Positionierung des Objektes [x, y]

@@ -164,10 +164,10 @@ for a in range(
 g_code_end = give_end_code()
 
 # hier werdden die verschiedenen Codes addiert
-gCode = g_code_start + g_code_first_layer + g_code_middle + g_code_end
-print(gCode)
+g_code = g_code_start + g_code_first_layer + g_code_middle + g_code_end
+print(g_code)
 
 # hier wird der Code abgespeichert
 name = input("Name: ")
 with open(name + ".gcode", "w") as file:
-    file.write(gCode)
+    file.write(g_code)
