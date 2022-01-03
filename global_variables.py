@@ -46,3 +46,4 @@ option = 0 # Option, die gedruckt werden soll
 placement = [] # die Positionierung des Objektes [x, y]
 list = [] # die Liste mit den abzufahrenden Koordinaten [x0, y0, x1, y1, x2, y2, ...]
 list_e = [] # die Liste mit der Information, ob bei einer Bewegung Material extrudiert werden soll, oder nicht [bool0, bool1, bool2, ...]
+object_height = 0.0 # die Höhe des zu druckendem Objektes

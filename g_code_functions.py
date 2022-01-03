@@ -62,32 +62,32 @@ def g19():
     s = "G19; change to yz \n"
     return s
 
-
+# mit diesem Befehl wechselt der Drucker auf das imperiale System (Distanzen sind nun in Zoll)
 def g20():
     s = "G20; change to imperial system \n"
     return s
 
-
+# mit diesem Befehl wechelt der Drucker auf das metrische System (Distanzen sind nun in mm)
 def g21():
     s = "G21; change to metric system \n"
     return s
 
-
+# mit diesem Befehl steuern die Achsen des Druckers die Nullstellen an
 def g28():
     s = "G28; homing \n"
     return s
 
-
+# mit diesem Befehl wecheln die Achsen des Druckers auf absolute Positionierung
 def g90():
     s = "G90; change to absolutive positioning \n"
     return s
 
-
+# mit diesem Befehl wecheln die Achsen des Druckers auf relative Positionierung
 def g91():
     s = "G91; change to relative positioning \n"
     return s
 
-
+# der Drucker setzt die aktuellen Koordinaten auf die hier neu gegebenen 
 def g92(x, y, z):
     x = 0
     y = 0
@@ -95,32 +95,32 @@ def g92(x, y, z):
     s = "G92 X" + str(x) + " Y" + str(y) + " Z" + str(z) + "\n"
     return s
 
-
+# der Extruder Motor des Druckers wechselt auf absolute Positionierung
 def m82():
     s = "M82; extruder changes to absolutive positioning \n"
     return s
 
-
+# der Extruder Motor der Druckers wechelt auf relative Positionierung
 def m83():
     s = "M83; extruder changes to relative positioning \n"
     return s
 
-
+# der Extruder heizt auf die gegebene Temperatur vor, das Programm läuft weiter
 def m104(extruder_temperature):
     s = "M104 S" + str(extruder_temperature) + "\n"
     return s
 
-
+# der Extruder heizt auf die gegebene Temperatur vor, das Programm wartet, bis die gegebene Temperatur erreicht ist
 def m109(extruder_temperature):
     s = "M109 S" + str(extruder_temperature) + "\n"
     return s
 
-
+# das Bett heizt auf die gegebene Temperatur vor, das Programm läuft weiter
 def m140(bed_temperature):
     s = "M140 S" + str(bed_temperature) + "\n"
     return s
 
-
+# das Bett heizt auf die gegebene Temperatur vor, das Programm wartet, bis die gegebene Temperatur erreicht ist
 def m190(bed_temperature):
     s = "M190 S" + str(bed_temperature) + "\n"
     return s

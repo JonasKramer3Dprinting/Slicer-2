@@ -13,22 +13,22 @@ def print_settings():
     fei = float(input("Initial Layer Extrusion Speed: "))
     fe = float(input("Extrusion Speed: "))
     rd = float(input("Retract Distance: "))
-    return tei,te,tbi,tb,lhi,lh,lwi,lw,fti,ft,fei,fe,rd
+    return tei, te, tbi, tb, lhi, lh, lwi, lw, fti, ft, fei, fe, rd
 
 
 # hier werden die Druckeinstellungen auf die Werte der ersten Extrusionslinien gesetzt
-def change_one(tei,tbi,lh):
-    return tei,tbi,lh,10
+def change_one(tei, tbi, lh):
+    return tei, tbi, lh, 10
 
 
 # hier werden die Druckeinstellungen auf die Werte der ersten Ebene gesetzt
-def change_two(tei,tbi,lhi,lwi,fti,fei,rd):
-    return tei,tbi,lhi,lwi,fti,fei,rd
+def change_two(tei, tbi, lhi, lwi, fti, fei, rd):
+    return tei, tbi, lhi, lwi, fti, fei, rd
 
 
 # hier werden die Druckeinstellungen auf die Werte der zweiten bis zur letzten Ebene gesetzt
-def change_three(te,tb,lh,lw,ft,fe,rd):
-    return te,tb,lh,lw,ft,fe,rd
+def change_three(te, tb, lh, lw, ft, fe, rd):
+    return te, tb, lh, lw, ft, fe, rd
 
 
 # mit dieser Funktion wird abgefragt, was genau gedruckt werden soll
