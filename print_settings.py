@@ -1,5 +1,5 @@
 # hier wird die Funktion definiert, mit der die Druckeinstellungen gesetzt werden
-def printSettings():
+def print_settings():
     tei = float(input("Initial Layer Extruder Temperature: "))
     te = float(input("Extruder Temperature: "))
     tbi = float(input("Initial Layer Bed Temperature: "))
@@ -17,22 +17,22 @@ def printSettings():
 
 
 # hier werden die Druckeinstellungen auf die Werte der ersten Extrusionslinien gesetzt
-def changeOne(tei,tbi,lh):
+def change_one(tei,tbi,lh):
     return tei,tbi,lh,10
 
 
 # hier werden die Druckeinstellungen auf die Werte der ersten Ebene gesetzt
-def changeTwo(tei,tbi,lhi,lwi,fti,fei,rd):
+def change_two(tei,tbi,lhi,lwi,fti,fei,rd):
     return tei,tbi,lhi,lwi,fti,fei,rd
 
 
 # hier werden die Druckeinstellungen auf die Werte der zweiten bis zur letzten Ebene gesetzt
-def changeThree(te,tb,lh,lw,ft,fe,rd):
+def change_three(te,tb,lh,lw,ft,fe,rd):
     return te,tb,lh,lw,ft,fe,rd
 
 
 # mit dieser Funktion wird abgefragt, was genau gedruckt werden soll
-def printOptions():
+def print_options():
     option = int(
         input(
             "What do you want to print? \nEnter 0 for printing a quader. \nEnter 1 for printing an extruded equilateral polygon. \nEnter your number here: "
@@ -42,12 +42,12 @@ def printOptions():
 
 
 # mit dieser Funktion wird abgefragt, wo das zu druckende Bauteil platziert wird
-def placementSettings():
+def placement_settings():
     print("Where should the object be placed?")
-    placementX = float(
+    placement_x = float(
         input("Give the x-Coordinate, which should be between 50 and 170: ")
     )
-    placementY = float(
+    placement_y = float(
         input("Give the Y-Coordinate, which should be between 50 and 170: ")
     )
-    return [placementX, placementY]
+    return [placement_x, placement_y]

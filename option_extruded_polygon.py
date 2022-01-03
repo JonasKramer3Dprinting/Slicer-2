@@ -1,4 +1,4 @@
-from globalVariables import *
+from global_variables import *
 
 corners = 0
 radius = 0.0
@@ -6,7 +6,7 @@ deviation = 0.0
 height = 0.0
 
 
-def optionOneSettings():
+def option_extruded_polygon_settings():
     global radius
     global corners
     global height
@@ -24,51 +24,51 @@ def optionOneSettings():
     height = float(input("Height of the object: "))
 
 
-def optionOneSettings1():
+def option_one_settings1():
     return radius
 
 
-def optionOneSettings2():
+def option_one_settings2():
     return corners
 
 
-def optionOneSettings3():
+def option_one_settings3():
     return height
 
 
-def optionOne(lineWidth, placementX, placementY, radius, corners, height):
+def option_one(line_width, placement_x, placement_y, radius, corners, height):
     global list
-    global listE
-    listE = []
+    global list_e
+    list_e = []
     list = []
     global deviation
     a = 180 - 360 / corners
     deviation = (
-        lineWidth ** 2
+        line_width ** 2
         + (
-            lineWidth / math.tan(math.pi / 180 * a)
-            + lineWidth / math.sin(math.pi / 180 * a)
+            line_width / math.tan(math.pi / 180 * a)
+            + line_width / math.sin(math.pi / 180 * a)
         )
         ** 2
     ) ** 0.5  # hier wird die Abweichung berechnet
     print(deviation)
     radius = radius - deviation / 2  # Abweichung der äußersten Linie wird korrigiert
     while True:
-        if radius < (lineWidth / 2):
+        if radius < (line_width / 2):
             break  # Schleife wir gebrochen, sobald die Düse sich zum Mittelpunkt des Polygons vorgearbeitet hat
         angle = 0  # in dieser und den nächsten 3 Zeilen wird der erste Punkt gegeben und dafür der boolianische Wert False eingetragen, da der Extruder zum Ansatzpunkt einer Ebene sich nur bewegen soll und bei dieser Bewegung kein Material extrudiert werden soll
         list.append(
             math.cos(math.pi / 180 * angle) * radius
         )  # der in der letzten Zeile angesprochene Ansatz kommt vor, jedes mal, wenn bevor ein kleiners Polygon gedruckt wird, der Extruder sich um die Länge der Abweichung nach innen bewegen soll
         list.append(math.sin(math.pi / 180 * angle) * radius)
-        listE.append(
+        list_e.append(
             False
         )  # zum ersten Punkt der Liste wird sich bewegt, ohne Material zu extrudieren
         for a in range(1, corners + 1, 1):
             angle = a * 360 / corners
             list.append(math.cos(math.pi / 180 * angle) * radius)  # xKoordinate
             list.append(math.sin(math.pi / 180 * angle) * radius)  # yKoordinate
-            listE.append(
+            list_e.append(
                 True
             )  # True, da Material extrudiert werden soll, bei der ansteuerung alle gegebenen Punkte, um die Seitenlinien des Polygons drucken zu können
         radius = (
@@ -76,11 +76,11 @@ def optionOne(lineWidth, placementX, placementY, radius, corners, height):
         )  # die Düse des Druckers bewegt sich um die Distanz der Abweichung nach innen, da beim erneuten Ablaufen der Schleife ein kleineres Polygon gedruckt wird
     for a in range(0, len(list), 2):
         list[a] = round(
-            (list[a] + placementX), 6
+            (list[a] + placement_x), 6
         )  # die x und y Koordinaten werden in diesen zwei Zeilen gerundet, da die Motoren des Druckers die Koordinaten nicht genauer ansteuern kann
-        list[a + 1] = round((list[a + 1] + placementY), 6)
+        list[a + 1] = round((list[a + 1] + placement_y), 6)
     print(list)
     return (
-        list, listE, 
+        list, list_e, 
         height,
     )  # die Liste der Punkte und die Objekthöhe werden bei dieser Funktion am Ende wiedergegeben

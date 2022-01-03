@@ -1,7 +1,7 @@
-from gCodeFunctions import *
+from g_code_functions import *
 
 
-def giveStartCode(lh, bedTemperature, extruderTemperature):
+def give_start_code(lh, bedTemperature, extruderTemperature):
     return (
         ";FLAVOR:Marlin \n;Layer height: "
         + str(lh)

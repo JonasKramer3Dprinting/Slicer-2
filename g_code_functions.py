@@ -32,14 +32,14 @@ def g1(x, y, z, extrusionSpeed, X, Y, lineWidth, lineHeigth, pi):
     return s
 
 
-def g1retract(retractionDistance):
+def g1_retract(retractionDistance):
     global e
     e = e - retractionDistance
     s = "G1 E" + str(e) + "\n"
     return s
 
 
-def g1retractreversed(retractionDistance):
+def g1_retractreversed(retractionDistance):
     global e 
     e = e + retractionDistance
     s = "G1 E" + str(e) + "\n"
