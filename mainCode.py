@@ -1,12 +1,10 @@
 import math
 
-from gCodeFunctions import *
-
 from globalVariables import *
 
-from printSettings import *
+from gCodeFunctions import *
 
-from printSettings2 import *
+from printSettings import *
 
 from optionZero import *
 
@@ -31,9 +29,9 @@ if (
         200,
         65,
         60,
-        0.24,
         0.12,
-        0.5,
+        0.12,
+        0.4,
         0.4,
         2400,
         4800,
